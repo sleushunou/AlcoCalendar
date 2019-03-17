@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{D8A01836-2CFF-4506-B656-8F2A616C029B}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AlcoCalendar.iOS</RootNamespace>
+    <AssemblyName>AlcoCalendar.iOS</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <IOSDebuggerPort>29634</IOSDebuggerPort>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebuggerPort>59518</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.4.8.1\lib\netstandard1.1\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="ViewControllers\" />
+    <Folder Include="ViewControllers\Start\" />
+    <Folder Include="ViewControllers\Calendar\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="ViewControllers\Start\StartStoryboard.storyboard" />
+    <InterfaceDefinition Include="ViewControllers\Calendar\CalendarStoryboard.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewControllers\Start\StartPageViewController.cs" />
+    <Compile Include="ViewControllers\Start\StartPageViewController.designer.cs">
+      <DependentUpon>StartPageViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs" />
+    <Compile Include="ViewControllers\Calendar\CalendarViewController.cs" />
+    <Compile Include="ViewControllers\Calendar\CalendarViewController.designer.cs">
+      <DependentUpon>CalendarViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Calendar\DayCell.cs" />
+    <Compile Include="ViewControllers\Calendar\DayCell.designer.cs">
+      <DependentUpon>DayCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Calendar\CalendarHeaderView.cs" />
+    <Compile Include="ViewControllers\Calendar\CalendarHeaderView.designer.cs">
+      <DependentUpon>CalendarHeaderView.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.iOS\Softeq.XToolkit.WhiteLabel.iOS.csproj">
+      <Project>{CC89DBC6-E68A-4C85-91C4-E276D3BC3C2E}</Project>
+      <Name>Softeq.XToolkit.WhiteLabel.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlcoCalendar.ViewModels\AlcoCalendar.ViewModels.csproj">
+      <Project>{9888383A-8392-4DF2-857C-13519BCE7CB9}</Project>
+      <Name>AlcoCalendar.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.csproj">
+      <Project>{B310B18B-8908-4CD9-A12B-93DF97671B99}</Project>
+      <Name>Softeq.XToolkit.WhiteLabel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Common\Softeq.XToolkit.Common.csproj">
+      <Project>{54E677DA-230A-4B36-8518-EFF2B3B160AF}</Project>
+      <Name>Softeq.XToolkit.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Common.iOS\Softeq.XToolkit.Common.iOS.csproj">
+      <Project>{6BCB2009-2E46-458C-BCAA-AFC27A631924}</Project>
+      <Name>Softeq.XToolkit.Common.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Bindings\Softeq.XToolkit.Bindings.csproj">
+      <Project>{47ED3C31-8C38-4AFD-8022-D350A3BA086F}</Project>
+      <Name>Softeq.XToolkit.Bindings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Bindings.iOS\Softeq.XToolkit.Bindings.iOS.csproj">
+      <Project>{2D399BA9-1878-43E2-AF05-6873EAE9151B}</Project>
+      <Name>Softeq.XToolkit.Bindings.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>

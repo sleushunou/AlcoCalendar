@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+    <Compile Remove="AlcoCalendar.Models\Day.cs" />
+    <Compile Remove="AlcoCalendar.Models\Month.cs" />
+    <Compile Remove="AlcoCalendar.Models\Year.cs" />
+    <Compile Remove="AlcoCalendar.Models\Day.cs" />
+    <Compile Remove="AlcoCalendar.Models\obj\Debug\netstandard2.0\AlcoCalendar.Models.AssemblyInfo.cs" />
+    <Compile Remove="AlcoCalendar.Models\obj\Debug\netstandard2.0\AlcoCalendar.Models.AssemblyInfo.cs" />
+    <Compile Remove="AlcoCalendar.Models\Month.cs" />
+    <Compile Remove="AlcoCalendar.Models\Month.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\" />
+    <Folder Include="Pages\Start\" />
+    <Folder Include="Pages\Calendar\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.csproj" />
+    <ProjectReference Include="..\AlcoCalendar.Models\AlcoCalendar.Models.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="AlcoCalendar.Models\obj\AlcoCalendar.Models.csproj.nuget.g.props" />
+    <None Remove="AlcoCalendar.Models\obj\AlcoCalendar.Models.csproj.nuget.g.targets" />
+    <None Remove="AlcoCalendar.Models\obj\project.assets.json" />
+    <None Remove="AlcoCalendar.Models\obj\Debug\netstandard2.0\AlcoCalendar.Models.assets.cache" />
+    <None Remove="AlcoCalendar.Models\obj\AlcoCalendar.Models.csproj.nuget.cache" />
+    <None Remove="AlcoCalendar.Models\bin\Debug\netstandard2.0\AlcoCalendar.Models.deps.json" />
+    <None Remove="AlcoCalendar.Models\bin\Debug\netstandard2.0\AlcoCalendar.Models.dll" />
+    <None Remove="AlcoCalendar.Models\obj\Debug\netstandard2.0\AlcoCalendar.Models.csprojAssemblyReference.cache" />
+    <None Remove="AlcoCalendar.Models\obj\Debug\netstandard2.0\AlcoCalendar.Models.csproj.CoreCompileInputs.cache" />
+    <None Remove="AlcoCalendar.Models\obj\Debug\netstandard2.0\AlcoCalendar.Models.AssemblyInfoInputs.cache" />
+    <None Remove="AlcoCalendar.Models\obj\Debug\netstandard2.0\AlcoCalendar.Models.dll" />
+    <None Remove="AlcoCalendar.Models\obj\Debug\netstandard2.0\AlcoCalendar.Models.pdb" />
+    <None Remove="AlcoCalendar.Models\obj\Debug\netstandard2.0\AlcoCalendar.Models.csproj.FileListAbsolute.txt" />
+    <None Remove="AlcoCalendar.Models\bin\Debug\netstandard2.0\AlcoCalendar.Models.deps.json" />
+    <None Remove="AlcoCalendar.Models\bin\Debug\netstandard2.0\AlcoCalendar.Models.dll" />
+    <None Remove="AlcoCalendar.Models\bin\Debug\netstandard2.0\AlcoCalendar.Models.pdb" />
+  </ItemGroup>
+</Project>

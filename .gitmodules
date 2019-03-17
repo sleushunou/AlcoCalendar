@@ -1,0 +1,6 @@
+[submodule "XToolkit.WhiteLabel"]
+	path = XToolkit.WhiteLabel
+	url = https://github.com/Softeq/XToolkit.WhiteLabel.git
+[submodule "XToolKit"]
+	path = XToolKit
+	url = https://github.com/Softeq/XToolkit.git
