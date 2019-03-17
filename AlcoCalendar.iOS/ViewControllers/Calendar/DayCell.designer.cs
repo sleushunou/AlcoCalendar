@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace AlcoCalendar.iOS
+namespace AlcoCalendar.iOS.ViewControllers.Calendar
 {
     [Register ("DayCell")]
     partial class DayCell

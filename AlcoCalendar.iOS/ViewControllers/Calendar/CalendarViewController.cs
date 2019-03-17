@@ -8,7 +8,7 @@ using Softeq.XToolkit.WhiteLabel.iOS;
 using System;
 using UIKit;
 
-namespace AlcoCalendar.iOS
+namespace AlcoCalendar.iOS.ViewControllers.Calendar
 {
     public partial class CalendarViewController : ViewControllerBase<CalendarViewModel>
     {

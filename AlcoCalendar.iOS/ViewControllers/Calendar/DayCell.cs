@@ -3,7 +3,7 @@ using Foundation;
 using System;
 using UIKit;
 
-namespace AlcoCalendar.iOS
+namespace AlcoCalendar.iOS.ViewControllers.Calendar
 {
     public partial class DayCell : UICollectionViewCell
     {

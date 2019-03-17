@@ -6,7 +6,7 @@ using Softeq.XToolkit.WhiteLabel.Navigation;
 using System;
 using UIKit;
 
-namespace AlcoCalendar.iOS
+namespace AlcoCalendar.iOS.ViewControllers.Calendar
 {
     public partial class StartPageViewController : ViewControllerBase<StartPageViewModel>
     {
