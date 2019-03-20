@@ -13,7 +13,7 @@ namespace AlcoCalendar.iOS.ViewControllers.Calendar
 
         internal void BindCell(DayViewModel item)
         {
-            NumberLabel.Text = item.Day;
+            NumberLabel.Text = item.DayNumber;
             NumberLabel.TextColor = item.IsInSelectedMonth ?
                 UIColor.Black : UIColor.Gray;
         }

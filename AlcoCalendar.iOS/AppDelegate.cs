@@ -16,6 +16,11 @@ using Softeq.XToolkit.WhiteLabel.iOS.Services.Logger;
 using AlcoCalendar.ViewModels.Pages.Calendar;
 using Softeq.XToolkit.Bindings;
 using Softeq.XToolkit.Bindings.iOS;
+using AlcoCalendar.ViewModels.Pages.AlcoDay;
+using AlcoCalendar.Models;
+using AlcoCalendar.iOS.Services;
+using AlcoCalendar.Models.Interfaces;
+using AlcoCalendar.ViewModels.Pages.AlcoList;
 
 namespace AlcoCalendar.iOS
 {
@@ -37,6 +42,7 @@ namespace AlcoCalendar.iOS
             _iocContainer = new IocContainer();
             Dependencies.Initialize(_iocContainer);
             BindingExtensions.Initialize(new AppleBindingFactory());
+            Resources.Current = new Resources(new IOSLocalizationService());
 
             var result = base.FinishedLaunching(application, launchOptions);
             return result;
@@ -81,9 +87,14 @@ namespace AlcoCalendar.iOS
                 .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
             builder.PerLifetimeScope<PageNavigationService, IPageNavigationService>()
                 .WithParameter(new TypedParameter(typeof(IIocContainer),_iocContainer));
+            builder.PerLifetimeScope<StoryboardDialogsService, IDialogsService>()
+                .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
+            builder.PerLifetimeScope<IOSLocalizationService, ILocalizationService>();
 
             builder.PerDependency<StartPageViewModel>();
             builder.PerDependency<CalendarViewModel>();
+            builder.PerDependency<AlcoDayViewModel>();
+            builder.PerDependency<AlcoListViewModel>();
 #pragma warning restore CS1701 // Assuming assembly reference matches identity
         }
 

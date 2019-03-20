@@ -19,6 +19,8 @@
     <Folder Include="Pages\" />
     <Folder Include="Pages\Start\" />
     <Folder Include="Pages\Calendar\" />
+    <Folder Include="Pages\AlcoDay\" />
+    <Folder Include="Pages\AlcoList\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.csproj" />

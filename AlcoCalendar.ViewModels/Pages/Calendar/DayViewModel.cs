@@ -6,23 +6,19 @@ namespace AlcoCalendar.ViewModels.Pages.Calendar
 {
     public class DayViewModel : ObservableObject
     {
-        private string _day;
         private bool _isInSelectedMonth;
 
         public DayViewModel(Day day, bool isInSelectedMonth)
         {
-            DayOfWeek = day.DayOfWeek;
-            Day = day.Number.ToString();
+            Model = day;
             IsInSelectedMonth = isInSelectedMonth;
         }
 
-        public DayOfWeek DayOfWeek { get; }
+        public Day Model { get; }
 
-        public string Day
-        {
-            get => _day;
-            set => Set(() => Day, ref _day, value);
-        }
+        public DayOfWeek DayOfWeek => Model.DayOfWeek;
+
+        public string DayNumber => Model.Number.ToString();
 
         public bool IsInSelectedMonth
         {

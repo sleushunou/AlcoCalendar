@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ct0-dq-faX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Alco List View Controller-->
+        <scene sceneID="53t-1m-8Pl">
+            <objects>
+                <viewController storyboardIdentifier="AlcoListViewController" id="Ct0-dq-faX" customClass="AlcoListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EVT-FI-0Nw"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Zy-Hd-CaA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NeW-wg-gIB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHF-fI-hqg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <items>
+                                    <navigationItem title="Title" id="5cA-V0-VvT">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GXd-k8-8Pc"/>
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="3gP-mH-Vcl"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="akZ-WZ-2Sl">
+                                <rect key="frame" x="16" y="70" width="343" height="597"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="akZ-WZ-2Sl" firstAttribute="leading" secondItem="NeW-wg-gIB" secondAttribute="leadingMargin" id="6bD-XF-UJG"/>
+                            <constraint firstItem="SHF-fI-hqg" firstAttribute="leading" secondItem="NeW-wg-gIB" secondAttribute="leading" id="JLh-Vc-9ch"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="akZ-WZ-2Sl" secondAttribute="trailing" id="New-9y-3fN"/>
+                            <constraint firstItem="SHF-fI-hqg" firstAttribute="top" secondItem="EVT-FI-0Nw" secondAttribute="bottom" id="O3y-UD-dPB"/>
+                            <constraint firstAttribute="trailing" secondItem="SHF-fI-hqg" secondAttribute="trailing" id="dQC-8f-p38"/>
+                            <constraint firstItem="akZ-WZ-2Sl" firstAttribute="top" secondItem="SHF-fI-hqg" secondAttribute="bottom" id="npa-HG-vyX"/>
+                            <constraint firstItem="9Zy-Hd-CaA" firstAttribute="top" secondItem="akZ-WZ-2Sl" secondAttribute="bottom" id="phv-Wh-PBv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="Table" destination="akZ-WZ-2Sl" id="name-outlet-akZ-WZ-2Sl"/>
+                        <outlet property="TopNavigationBar" destination="5cA-V0-VvT" id="name-outlet-5cA-V0-VvT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Y0-tW-lmY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-561" y="-730"/>
+        </scene>
+    </scenes>
+</document>

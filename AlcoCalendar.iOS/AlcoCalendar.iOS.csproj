@@ -91,17 +91,28 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\DisclosureIndicator.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\DisclosureIndicator.imageset\disclosureArrow.png" />
+    <ImageAsset Include="Assets.xcassets\DisclosureIndicator.imageset\disclosureArrow%402x.png" />
+    <ImageAsset Include="Assets.xcassets\DisclosureIndicator.imageset\disclosureArrow%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="ViewControllers\" />
     <Folder Include="ViewControllers\Start\" />
     <Folder Include="ViewControllers\Calendar\" />
+    <Folder Include="ViewControllers\AlcoDay\" />
+    <Folder Include="Assets.xcassets\DisclosureIndicator.imageset\" />
+    <Folder Include="ViewControllers\AlcoList\" />
+    <Folder Include="Resources\Base.lproj\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="ViewControllers\Start\StartStoryboard.storyboard" />
     <InterfaceDefinition Include="ViewControllers\Calendar\CalendarStoryboard.storyboard" />
+    <InterfaceDefinition Include="ViewControllers\AlcoDay\AlcoDayStoryboard.storyboard" />
+    <InterfaceDefinition Include="ViewControllers\AlcoList\AlcoListStoryboard.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -126,6 +137,19 @@
     <Compile Include="ViewControllers\Calendar\CalendarHeaderView.cs" />
     <Compile Include="ViewControllers\Calendar\CalendarHeaderView.designer.cs">
       <DependentUpon>CalendarHeaderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\AlcoDay\AlcoDayViewController.cs" />
+    <Compile Include="ViewControllers\AlcoDay\AlcoDayViewController.designer.cs">
+      <DependentUpon>AlcoDayViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\AlcoList\AlcoListViewController.cs" />
+    <Compile Include="ViewControllers\AlcoList\AlcoListViewController.designer.cs">
+      <DependentUpon>AlcoListViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IOSLocalizationService.cs" />
+    <Compile Include="ViewControllers\AlcoDay\AlcoDayItemViewCell.cs" />
+    <Compile Include="ViewControllers\AlcoDay\AlcoDayItemViewCell.designer.cs">
+      <DependentUpon>AlcoDayItemViewCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +181,13 @@
       <Project>{2D399BA9-1878-43E2-AF05-6873EAE9151B}</Project>
       <Name>Softeq.XToolkit.Bindings.iOS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AlcoCalendar.Models\AlcoCalendar.Models.csproj">
+      <Project>{9441DA14-D504-42F3-B852-F64DB6C765B2}</Project>
+      <Name>AlcoCalendar.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Base.lproj\Localizable.strings" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
