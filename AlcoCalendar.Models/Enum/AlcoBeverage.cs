@@ -3,14 +3,14 @@ namespace AlcoCalendar.Models.Enum
 {
     public enum AlcoBeverage
     {
-        Beer,
-        Wine,
-        Tincture,
-        Vodka,
-        Whiskey,
-        Cognac,
-        Rum,
-        Absinthe
+        Beer = 0,
+        Wine = 1,
+        Tincture = 2,
+        Vodka = 3,
+        Whiskey = 4,
+        Cognac = 5,
+        Rum = 6,
+        Absinthe = 7
     }
 
     public static class AlcoBeverageDegree

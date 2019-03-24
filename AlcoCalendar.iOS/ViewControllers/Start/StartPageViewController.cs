@@ -10,12 +10,16 @@ namespace AlcoCalendar.iOS.ViewControllers.Calendar
 {
     public partial class StartPageViewController : ViewControllerBase<StartPageViewModel>
     {
+        private UINavigationController _t;
+
         public StartPageViewController (IntPtr handle) : base (handle)
         {
             SetExistingViewModel(Dependencies.IocContainer.Resolve<StartPageViewModel>());
 
             Dependencies.IocContainer.Resolve<IPageNavigationService>()
                 .Initialize(NavigationController);
+
+            _t = NavigationController;
         }
     }
 }

@@ -25,6 +25,7 @@ namespace AlcoCalendar.iOS.ViewControllers.AlcoDay
         {
             base.ViewDidLoad();
             TopNavigationBar.LeftBarButtonItem.SetCommand(ViewModel.DialogComponent.CloseCommand);
+            TopNavigationBar.RightBarButtonItem.SetCommand(ViewModel.DialogComponent.CloseCommand, true);
             TopNavigationBar.Title = ViewModel.FullDate;
             _source = new WeakReferenceEx<AlcoItemsTableViewSource>(new AlcoItemsTableViewSource(ViewModel.AddAlcoTitle)
             {

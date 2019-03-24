@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using AlcoCalendar.Models;
+using AlcoCalendar.Models.Interfaces;
 using AlcoCalendar.ViewModels.Pages.AlcoDay;
 using Softeq.XToolkit.Common.Collections;
 using Softeq.XToolkit.Common.Command;
@@ -16,14 +17,17 @@ namespace AlcoCalendar.ViewModels.Pages.Calendar
     public class CalendarViewModel : ViewModelBase
     {
         private readonly IDialogsService _dialogsService;
+        private readonly IAlcoService _alcoService;
 
         private Month _month;
         private string _monthAndYear;
         private DayViewModel _selectedDay;
 
-        public CalendarViewModel(IDialogsService dialogsService)
+        public CalendarViewModel(IDialogsService dialogsService, 
+            IAlcoService alcoService)
         {
             _dialogsService = dialogsService;
+            _alcoService = alcoService;
 
             Days = new ObservableRangeCollection<DayViewModel>();
             DaysOfWeek = GetOrderedDaysOfWeek()
@@ -49,7 +53,11 @@ namespace AlcoCalendar.ViewModels.Pages.Calendar
             set
             {
                 Set(() => SelectedDay, ref _selectedDay, value);
-                OpenDayAsync(value).SafeTaskWrapper();
+                if(value != null)
+                {
+                    OpenDayAsync(value).SafeTaskWrapper();
+                    SelectedDay = null;
+                }
             }
         }
 
@@ -102,7 +110,11 @@ namespace AlcoCalendar.ViewModels.Pages.Calendar
 
         private async Task OpenDayAsync(DayViewModel dayViewModel)
         {
-            await _dialogsService.ShowForViewModel<AlcoDayViewModel, DayViewModel>(dayViewModel).ConfigureAwait(false);
+            var result = await _dialogsService.ShowForViewModel<AlcoDayViewModel, DayViewModel>(dayViewModel).ConfigureAwait(false);
+            if(result != null)
+            {
+                await _alcoService.WriteDay(result.AlcoItems.Select(x => x.Model).ToList(), result.Parameter.Model).ConfigureAwait(false);
+            }
         }
 
         private Month GetPrevMonth()

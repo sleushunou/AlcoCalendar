@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using AlcoCalendar.Models;
 using AlcoCalendar.Models.Enum;
 using AlcoCalendar.Models.Interfaces;
 using Softeq.XToolkit.WhiteLabel.Mvvm;
@@ -7,30 +8,26 @@ namespace AlcoCalendar.ViewModels.Pages.AlcoDay
 {
     public class AlcoDayItemViewModel : ObservableObject
     {
-        private string _name;
-        private double _count;
-
-        public AlcoDayItemViewModel(AlcoBeverage alcoBeverage, ILocalizationService localizationService)
+        public AlcoDayItemViewModel(AlcoItem alcoItem, ILocalizationService localizationService)
         {
-            Model = alcoBeverage;
-            Name = localizationService.GetLocalizableStirng(Model.ToString());
+            Model = alcoItem;
+            Name = localizationService.GetLocalizableStirng(Model.AlcoBeverage.ToString());
         }
 
-        public AlcoBeverage Model { get; }
+        public AlcoItem Model { get; }
 
-        public string Name
-        {
-            get => _name;
-            set { Set(() => Name, ref _name, value); }
-        }
+        public string Name { get; }
 
         public string CountString
         {
-            get => _count.ToString("F", CultureInfo.CurrentCulture);
+            get => Model.Count.ToString("F", CultureInfo.CurrentCulture);
             set
             {
-                double.TryParse(value, out _count);
-                RaisePropertyChanged(() => CountString);
+                if (double.TryParse(value, out var count))
+                {
+                    Model.Count = count;
+                    RaisePropertyChanged(() => CountString);
+                }
             }
         }
     }

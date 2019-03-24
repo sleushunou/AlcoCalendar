@@ -21,6 +21,11 @@ using AlcoCalendar.Models;
 using AlcoCalendar.iOS.Services;
 using AlcoCalendar.Models.Interfaces;
 using AlcoCalendar.ViewModels.Pages.AlcoList;
+using Softeq.XToolkit.Caching.Realm;
+using AlcoCalendar.Services;
+using AlcoCalendar.LocalData.Interfaces;
+using AlcoCalendar.LocalData;
+using Softeq.XToolkit.WhiteLabel.Services;
 
 namespace AlcoCalendar.iOS
 {
@@ -90,6 +95,11 @@ namespace AlcoCalendar.iOS
             builder.PerLifetimeScope<StoryboardDialogsService, IDialogsService>()
                 .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
             builder.PerLifetimeScope<IOSLocalizationService, ILocalizationService>();
+            builder.PerLifetimeScope<RealmLocalCache, ILocalCache>();
+            builder.PerLifetimeScope<AlcoService, IAlcoService>();
+            builder.PerLifetimeScope<LocalAlcoService, ILocalAlcoService>();
+
+            builder.PerLifetimeScope<JsonSerializer, IJsonSerializer>();
 
             builder.PerDependency<StartPageViewModel>();
             builder.PerDependency<CalendarViewModel>();
