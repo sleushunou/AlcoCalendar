@@ -9,6 +9,7 @@ using AlcoCalendar.ViewModels.Pages.AlcoDay;
 using Softeq.XToolkit.Common.Collections;
 using Softeq.XToolkit.Common.Command;
 using Softeq.XToolkit.Common.Extensions;
+using Softeq.XToolkit.WhiteLabel.Interfaces;
 using Softeq.XToolkit.WhiteLabel.Mvvm;
 using Softeq.XToolkit.WhiteLabel.Navigation;
 
@@ -16,18 +17,14 @@ namespace AlcoCalendar.ViewModels.Pages.Calendar
 {
     public class CalendarViewModel : ViewModelBase
     {
-        private readonly IDialogsService _dialogsService;
-        private readonly IAlcoService _alcoService;
+        private readonly IViewModelFactoryService _viewModelFactoryService;
 
         private Month _month;
         private string _monthAndYear;
-        private DayViewModel _selectedDay;
 
-        public CalendarViewModel(IDialogsService dialogsService, 
-            IAlcoService alcoService)
+        public CalendarViewModel(IViewModelFactoryService viewModelFactoryService)
         {
-            _dialogsService = dialogsService;
-            _alcoService = alcoService;
+            _viewModelFactoryService = viewModelFactoryService;
 
             Days = new ObservableRangeCollection<DayViewModel>();
             DaysOfWeek = GetOrderedDaysOfWeek()
@@ -47,20 +44,6 @@ namespace AlcoCalendar.ViewModels.Pages.Calendar
 
         public RelayCommand NextCommand { get; }
 
-        public DayViewModel SelectedDay
-        {
-            get => _selectedDay;
-            set
-            {
-                Set(() => SelectedDay, ref _selectedDay, value);
-                if(value != null)
-                {
-                    OpenDayAsync(value).SafeTaskWrapper();
-                    SelectedDay = null;
-                }
-            }
-        }
-
         public string MonthAndYear
         {
             get => _monthAndYear;
@@ -79,16 +62,19 @@ namespace AlcoCalendar.ViewModels.Pages.Calendar
             if (prevMonthDayCount > 0)
             {
                 var prevMonthDays = GetPrevMonth().Days;
-                days.AddRange(prevMonthDays.Skip(prevMonthDays.Count - prevMonthDayCount).Select(x => new DayViewModel(x, false)));
+                days.AddRange(prevMonthDays.Skip(prevMonthDays.Count - prevMonthDayCount)
+                    .Select(x => _viewModelFactoryService.ResolveViewModel<DayViewModel, (Day, bool)>((x, false))));
             }
 
-            days.AddRange(month.Days.Select(x => new DayViewModel(x, true)));
+            days.AddRange(month.Days
+                .Select(x => _viewModelFactoryService.ResolveViewModel<DayViewModel, (Day, bool)>((x, true))));
 
             int nextMonthDayCount = (int)(GetOrderedDaysOfWeek().Last() - (int)month.Days.Last().DayOfWeek);
             if (nextMonthDayCount > 0)
             {
                 var nextMonthDays = GetNextMonth().Days;
-                days.AddRange(nextMonthDays.Take(nextMonthDayCount).Select(x => new DayViewModel(x, false)));
+                days.AddRange(nextMonthDays.Take(nextMonthDayCount)
+                    .Select(x => _viewModelFactoryService.ResolveViewModel<DayViewModel, (Day, bool)>((x, false))));
             }
 
             if (Days.Count > 0) //TODO replace to clear after framework fix
@@ -106,15 +92,6 @@ namespace AlcoCalendar.ViewModels.Pages.Calendar
         private void ActionLoadNextMont()
         {
             LoadMonth(GetNextMonth());
-        }
-
-        private async Task OpenDayAsync(DayViewModel dayViewModel)
-        {
-            var result = await _dialogsService.ShowForViewModel<AlcoDayViewModel, DayViewModel>(dayViewModel).ConfigureAwait(false);
-            if(result != null)
-            {
-                await _alcoService.WriteDay(result.AlcoItems.Select(x => x.Model).ToList(), result.Parameter.Model).ConfigureAwait(false);
-            }
         }
 
         private Month GetPrevMonth()

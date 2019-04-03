@@ -26,6 +26,8 @@ using AlcoCalendar.Services;
 using AlcoCalendar.LocalData.Interfaces;
 using AlcoCalendar.LocalData;
 using Softeq.XToolkit.WhiteLabel.Services;
+using Softeq.XToolkit.WhiteLabel.Mvvm;
+using Softeq.XToolkit.WhiteLabel.Interfaces;
 
 namespace AlcoCalendar.iOS
 {
@@ -91,13 +93,14 @@ namespace AlcoCalendar.iOS
             builder.PerLifetimeScope<BackStackManager, IBackStackManager>()
                 .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
             builder.PerLifetimeScope<PageNavigationService, IPageNavigationService>()
-                .WithParameter(new TypedParameter(typeof(IIocContainer),_iocContainer));
+                .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
             builder.PerLifetimeScope<StoryboardDialogsService, IDialogsService>()
                 .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
             builder.PerLifetimeScope<IOSLocalizationService, ILocalizationService>();
             builder.PerLifetimeScope<RealmLocalCache, ILocalCache>();
             builder.PerLifetimeScope<AlcoService, IAlcoService>();
             builder.PerLifetimeScope<LocalAlcoService, ILocalAlcoService>();
+            builder.PerLifetimeScope<ViewModelFactoryService, IViewModelFactoryService>();
 
             builder.PerLifetimeScope<JsonSerializer, IJsonSerializer>();
 
@@ -105,6 +108,7 @@ namespace AlcoCalendar.iOS
             builder.PerDependency<CalendarViewModel>();
             builder.PerDependency<AlcoDayViewModel>();
             builder.PerDependency<AlcoListViewModel>();
+            builder.PerDependency<DayViewModel>();
 #pragma warning restore CS1701 // Assuming assembly reference matches identity
         }
 

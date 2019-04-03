@@ -23,6 +23,8 @@ using Softeq.XToolkit.WhiteLabel.Droid.Navigation;
 using Softeq.XToolkit.WhiteLabel.Droid.Services;
 using Softeq.XToolkit.WhiteLabel.Droid.Services.Logger;
 using Softeq.XToolkit.WhiteLabel.Extensions;
+using Softeq.XToolkit.WhiteLabel.Interfaces;
+using Softeq.XToolkit.WhiteLabel.Mvvm;
 using Softeq.XToolkit.WhiteLabel.Navigation;
 using Softeq.XToolkit.WhiteLabel.Services;
 
@@ -71,6 +73,7 @@ namespace AlcoCalendar.Droid
             builder.PerLifetimeScope<AlcoService, IAlcoService>();
             builder.PerLifetimeScope<LocalAlcoService, ILocalAlcoService>();
             builder.PerLifetimeScope<DefaultAlertBuilder, IAlertBuilder>();
+            builder.PerLifetimeScope<ViewModelFactoryService, IViewModelFactoryService>();
 
             builder.PerLifetimeScope<JsonSerializer, IJsonSerializer>();
 
@@ -78,6 +81,7 @@ namespace AlcoCalendar.Droid
             builder.PerDependency<CalendarViewModel>();
             builder.PerDependency<AlcoDayViewModel>();
             builder.PerDependency<AlcoListViewModel>();
+            builder.PerDependency<DayViewModel>();
         }
     }
 }

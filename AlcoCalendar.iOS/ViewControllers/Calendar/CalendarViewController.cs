@@ -27,6 +27,7 @@ namespace AlcoCalendar.iOS.ViewControllers.Calendar
         {
             base.ViewDidLoad();
             _source = new WeakReferenceEx<ObservableCollectionViewSource<DayViewModel, DayCell>>(ViewModel.Days.GetCollectionViewSource<DayViewModel, DayCell>(BindCell, GetSupplementaryView, cellReuseId));
+            _source.Target.SelectionChanged += TargetSelectionChanged;
             CalendarCollectionView.Source = _source.Target;
             CalendarCollectionView.Delegate = new CalendarCollectionViewDelegateFlowLayout(_source);
             PrevButton.SetCommand(ViewModel.PrevCommand);
@@ -37,7 +38,6 @@ namespace AlcoCalendar.iOS.ViewControllers.Calendar
         {
             base.DoAttachBindings();
             Bindings.Add(this.SetBinding(() => ViewModel.MonthAndYear, () => MonthAndYearLabel.Text));
-            Bindings.Add(this.SetBinding(() => ViewModel.SelectedDay, () => _source.Target.SelectedItem, BindingMode.TwoWay));
         }
 
         private void BindCell(DayCell cell, DayViewModel item, NSIndexPath indexPath)
@@ -72,5 +72,15 @@ namespace AlcoCalendar.iOS.ViewControllers.Calendar
                 _source.Target?.ItemSelected(collectionView, indexPath);
             }
         }
+
+        private void TargetSelectionChanged(object sender, EventArgs e)
+        {
+            var viewModel = _source.Target?.SelectedItem;
+            if(viewModel != null)
+            {
+                viewModel.NavigateToDetailsAsync();
+            }
+        }
+
     }
 }
