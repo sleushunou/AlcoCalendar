@@ -4,6 +4,7 @@ using System.Reflection;
 using AlcoCalendar.Droid.Services;
 using AlcoCalendar.LocalData;
 using AlcoCalendar.LocalData.Interfaces;
+using AlcoCalendar.Models;
 using AlcoCalendar.Models.Interfaces;
 using AlcoCalendar.Services;
 using AlcoCalendar.ViewModels.Pages.AlcoDay;
@@ -11,6 +12,7 @@ using AlcoCalendar.ViewModels.Pages.AlcoList;
 using AlcoCalendar.ViewModels.Pages.Calendar;
 using AlcoCalendar.ViewModels.Pages.Start;
 using Android.App;
+using Android.Content;
 using Android.Runtime;
 using Autofac;
 using Plugin.CurrentActivity;
@@ -35,6 +37,7 @@ namespace AlcoCalendar.Droid
     {
         private IIocContainer _iocContainer;
         private ICurrentActivity _currentActivity;
+        private ILocalizationService _localizationService;
 
         protected MainApplication(IntPtr handle, JniHandleOwnership transer) : base(handle, transer)
         {
@@ -46,6 +49,8 @@ namespace AlcoCalendar.Droid
             _currentActivity = (new CurrentActivityImplementation());
             _currentActivity.Init(this);
             Dependencies.Initialize(_iocContainer);
+            _localizationService = new DroidLocalizationService(ApplicationContext);
+            Models.Resources.Current = new Resources(_localizationService);
             base.OnCreate();
         }
 
@@ -68,7 +73,7 @@ namespace AlcoCalendar.Droid
                 .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
             builder.PerLifetimeScope<DroidFragmentDialogService, IDialogsService>()
                 .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
-            builder.PerLifetimeScope<DroidLocalizationService, ILocalizationService>();
+            builder.RegisterInstance(_localizationService).As<ILocalizationService>();
             builder.PerLifetimeScope<RealmLocalCache, ILocalCache>();
             builder.PerLifetimeScope<AlcoService, IAlcoService>();
             builder.PerLifetimeScope<LocalAlcoService, ILocalAlcoService>();

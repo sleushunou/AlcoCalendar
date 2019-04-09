@@ -126,6 +126,9 @@
     <Reference Include="FFImageLoading.Platform">
       <HintPath>..\packages\Xamarin.FFImageLoading.2.4.3.840\lib\Xamarin.iOS10\FFImageLoading.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Permissions">
+      <HintPath>..\packages\Plugin.Permissions.3.0.0.12\lib\xamarinios10\Plugin.Permissions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -237,6 +240,14 @@
     <ProjectReference Include="..\AlcoCalendar.LocalData\AlcoCalendar.LocalData.csproj">
       <Project>{C68FF9C6-3630-414F-A183-5B0A44A8BA5C}</Project>
       <Name>AlcoCalendar.LocalData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Permissions\Softeq.XToolkit.Permissions.csproj">
+      <Project>{CC6C069C-1F3B-4B76-A245-66222686F39E}</Project>
+      <Name>Softeq.XToolkit.Permissions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Permissions.iOS\Softeq.XToolkit.Permissions.iOS.csproj">
+      <Project>{7EB2ADA9-C599-4644-AC6B-109F1AEED19F}</Project>
+      <Name>Softeq.XToolkit.Permissions.iOS</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

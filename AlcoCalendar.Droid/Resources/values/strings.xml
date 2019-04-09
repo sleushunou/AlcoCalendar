@@ -1,4 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AlcoCalendar.Droid</string>
+    <string name="Beer">Пиво</string>
+    <string name="Wine">Вино</string>
+    <string name="Tincture">Настойка (20°)</string>
+    <string name="Vodka">Водка</string>
+    <string name="Whiskey">Виски</string>
+    <string name="Cognac">Коньяк</string>
+    <string name="Rum">Ром</string>
+    <string name="Absinthe">Абсент</string>
+    <string name="AddAlcohol">Добавить алкоголь</string>
 </resources>

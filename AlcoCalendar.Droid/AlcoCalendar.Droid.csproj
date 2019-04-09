@@ -137,6 +137,9 @@
     <Compile Include="Views\Pages\Calendar\DayViewHolder.cs" />
     <Compile Include="Views\Pages\Start\StartPageActivity.cs" />
     <Compile Include="Views\Pages\AlcoDay\AlcoDayDialogFragment.cs" />
+    <Compile Include="Views\Pages\AlcoDay\AlcoDayViewHolder.cs" />
+    <Compile Include="Views\Pages\AlcoDay\AlcoDayAddViewHolder.cs" />
+    <Compile Include="Views\Pages\AlcoList\AlcoListDialogFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -149,6 +152,10 @@
     <AndroidResource Include="Resources\values\strings.xml" />
     <AndroidResource Include="Resources\layout\calendar.axml" />
     <AndroidResource Include="Resources\layout\day.axml" />
+    <AndroidResource Include="Resources\layout\alcoday.axml" />
+    <AndroidResource Include="Resources\layout\alcoday_item.axml" />
+    <AndroidResource Include="Resources\layout\alcoday_add_item.axml" />
+    <AndroidResource Include="Resources\layout\alco_list.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />
@@ -164,6 +171,7 @@
     <Folder Include="Resources\layout\" />
     <Folder Include="Views\Pages\Start\" />
     <Folder Include="Views\Pages\AlcoDay\" />
+    <Folder Include="Views\Pages\AlcoList\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.Droid\Softeq.XToolkit.WhiteLabel.Droid.csproj">

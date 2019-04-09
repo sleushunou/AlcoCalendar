@@ -28,15 +28,18 @@ using AlcoCalendar.LocalData;
 using Softeq.XToolkit.WhiteLabel.Services;
 using Softeq.XToolkit.WhiteLabel.Mvvm;
 using Softeq.XToolkit.WhiteLabel.Interfaces;
+using Softeq.XToolkit.Permissions;
+using Softeq.XToolkit.Permissions.iOS;
 
 namespace AlcoCalendar.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the
     // User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
     [Register("AppDelegate")]
-    public class AppDelegate : AppDelegateBase
+    public class AppDelegate : AutoRegistrationAppDelegate
     {
         private IIocContainer _iocContainer;
+        private ILocalizationService _localiztionService;
 
         public override UIWindow Window
         {
@@ -49,7 +52,9 @@ namespace AlcoCalendar.iOS
             _iocContainer = new IocContainer();
             Dependencies.Initialize(_iocContainer);
             BindingExtensions.Initialize(new AppleBindingFactory());
-            Resources.Current = new Resources(new IOSLocalizationService());
+
+            _localiztionService = new IOSLocalizationService();
+            Resources.Current = new Resources(_localiztionService);
 
             var result = base.FinishedLaunching(application, launchOptions);
             return result;
@@ -96,7 +101,7 @@ namespace AlcoCalendar.iOS
                 .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
             builder.PerLifetimeScope<StoryboardDialogsService, IDialogsService>()
                 .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
-            builder.PerLifetimeScope<IOSLocalizationService, ILocalizationService>();
+            builder.RegisterInstance(_localiztionService);
             builder.PerLifetimeScope<RealmLocalCache, ILocalCache>();
             builder.PerLifetimeScope<AlcoService, IAlcoService>();
             builder.PerLifetimeScope<LocalAlcoService, ILocalAlcoService>();

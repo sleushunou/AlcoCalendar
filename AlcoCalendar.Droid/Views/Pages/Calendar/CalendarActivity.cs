@@ -15,6 +15,8 @@ using Softeq.XToolkit.Bindings;
 using Android.Support.V7.Widget;
 using Softeq.XToolkit.Bindings.Droid;
 using static Android.Support.V7.Widget.RecyclerView;
+using Softeq.XToolkit.WhiteLabel;
+using Softeq.XToolkit.WhiteLabel.Navigation;
 
 namespace AlcoCalendar.Droid.Views.Pages.Calendar
 {
@@ -38,6 +40,13 @@ namespace AlcoCalendar.Droid.Views.Pages.Calendar
 
             var adapter = new ObservableRecyclerViewAdapter<DayViewModel>(ViewModel.Days, GetViewHolder, BindViewHolder);
             _calenarRecyclerView.SetAdapter(adapter);
+        }
+
+        public override void OnBackPressed()
+        {
+            Dependencies.IocContainer.Resolve<IBackStackManager>()
+                .Clear();
+            base.OnBackPressed();
         }
 
         private ViewHolder GetViewHolder(ViewGroup parent, int viewType)
