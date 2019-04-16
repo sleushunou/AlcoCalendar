@@ -197,41 +197,13 @@
     <Compile Include="Helpers\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.iOS\Softeq.XToolkit.WhiteLabel.iOS.csproj">
-      <Project>{CC89DBC6-E68A-4C85-91C4-E276D3BC3C2E}</Project>
-      <Name>Softeq.XToolkit.WhiteLabel.iOS</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AlcoCalendar.ViewModels\AlcoCalendar.ViewModels.csproj">
       <Project>{9888383A-8392-4DF2-857C-13519BCE7CB9}</Project>
       <Name>AlcoCalendar.ViewModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.csproj">
-      <Project>{B310B18B-8908-4CD9-A12B-93DF97671B99}</Project>
-      <Name>Softeq.XToolkit.WhiteLabel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Common\Softeq.XToolkit.Common.csproj">
-      <Project>{54E677DA-230A-4B36-8518-EFF2B3B160AF}</Project>
-      <Name>Softeq.XToolkit.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Common.iOS\Softeq.XToolkit.Common.iOS.csproj">
-      <Project>{6BCB2009-2E46-458C-BCAA-AFC27A631924}</Project>
-      <Name>Softeq.XToolkit.Common.iOS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Bindings\Softeq.XToolkit.Bindings.csproj">
-      <Project>{47ED3C31-8C38-4AFD-8022-D350A3BA086F}</Project>
-      <Name>Softeq.XToolkit.Bindings</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Bindings.iOS\Softeq.XToolkit.Bindings.iOS.csproj">
-      <Project>{2D399BA9-1878-43E2-AF05-6873EAE9151B}</Project>
-      <Name>Softeq.XToolkit.Bindings.iOS</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AlcoCalendar.Models\AlcoCalendar.Models.csproj">
       <Project>{9441DA14-D504-42F3-B852-F64DB6C765B2}</Project>
       <Name>AlcoCalendar.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Caching.Realm\Softeq.XToolkit.Caching.Realm.csproj">
-      <Project>{99FBE45E-F49C-4349-A90F-019CBE1EB420}</Project>
-      <Name>Softeq.XToolkit.Caching.Realm</Name>
     </ProjectReference>
     <ProjectReference Include="..\AlcoCalendar.Services\AlcoCalendar.Services.csproj">
       <Project>{BF8E837A-9EE2-416D-B014-6C1DFFE7FF86}</Project>
@@ -241,13 +213,33 @@
       <Project>{C68FF9C6-3630-414F-A183-5B0A44A8BA5C}</Project>
       <Name>AlcoCalendar.LocalData</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Permissions\Softeq.XToolkit.Permissions.csproj">
-      <Project>{CC6C069C-1F3B-4B76-A245-66222686F39E}</Project>
-      <Name>Softeq.XToolkit.Permissions</Name>
+    <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.iOS\Softeq.XToolkit.WhiteLabel.iOS.csproj">
+      <Project>{CC89DBC6-E68A-4C85-91C4-E276D3BC3C2E}</Project>
+      <Name>Softeq.XToolkit.WhiteLabel.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Permissions.iOS\Softeq.XToolkit.Permissions.iOS.csproj">
+    <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.csproj">
+      <Project>{B310B18B-8908-4CD9-A12B-93DF97671B99}</Project>
+      <Name>Softeq.XToolkit.WhiteLabel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolkit.WhiteLabel\XToolkit.Bindings\XToolkit.Common\Softeq.XToolkit.Common\Softeq.XToolkit.Common.csproj">
+      <Project>{1A885724-8453-419D-A6A1-CF9FEA19347D}</Project>
+      <Name>Softeq.XToolkit.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolkit.WhiteLabel\XToolkit.Bindings\Softeq.XToolkit.Bindings\Softeq.XToolkit.Bindings.csproj">
+      <Project>{42158868-A850-4B98-A022-26571BEFD7AC}</Project>
+      <Name>Softeq.XToolkit.Bindings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolkit.WhiteLabel\XToolkit.Bindings\Softeq.XToolkit.Bindings.iOS\Softeq.XToolkit.Bindings.iOS.csproj">
+      <Project>{2D399BA9-1878-43E2-AF05-6873EAE9151B}</Project>
+      <Name>Softeq.XToolkit.Bindings.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolkit.WhiteLabel\XToolkit.Permissions\Softeq.XToolkit.Permissions.iOS\Softeq.XToolkit.Permissions.iOS.csproj">
       <Project>{7EB2ADA9-C599-4644-AC6B-109F1AEED19F}</Project>
       <Name>Softeq.XToolkit.Permissions.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolkit.WhiteLabel\XToolkit.Permissions\Softeq.XToolkit.Permissions\Softeq.XToolkit.Permissions.csproj">
+      <Project>{D3E8E73F-BD8D-4B6C-AC87-3F00FA453728}</Project>
+      <Name>Softeq.XToolkit.Permissions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

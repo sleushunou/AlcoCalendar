@@ -4,6 +4,7 @@ using System.Reflection;
 using AlcoCalendar.Droid.Services;
 using AlcoCalendar.LocalData;
 using AlcoCalendar.LocalData.Interfaces;
+using AlcoCalendar.LocalData.Realm;
 using AlcoCalendar.Models;
 using AlcoCalendar.Models.Interfaces;
 using AlcoCalendar.Services;
@@ -16,7 +17,6 @@ using Android.Content;
 using Android.Runtime;
 using Autofac;
 using Plugin.CurrentActivity;
-using Softeq.XToolkit.Caching.Realm;
 using Softeq.XToolkit.Common.Interfaces;
 using Softeq.XToolkit.WhiteLabel;
 using Softeq.XToolkit.WhiteLabel.Droid;
@@ -74,11 +74,11 @@ namespace AlcoCalendar.Droid
             builder.PerLifetimeScope<DroidFragmentDialogService, IDialogsService>()
                 .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
             builder.RegisterInstance(_localizationService).As<ILocalizationService>();
-            builder.PerLifetimeScope<RealmLocalCache, ILocalCache>();
             builder.PerLifetimeScope<AlcoService, IAlcoService>();
             builder.PerLifetimeScope<LocalAlcoService, ILocalAlcoService>();
             builder.PerLifetimeScope<DefaultAlertBuilder, IAlertBuilder>();
             builder.PerLifetimeScope<ViewModelFactoryService, IViewModelFactoryService>();
+            builder.PerLifetimeScope<RealmLocalCache, ILocalCache>();
 
             builder.PerLifetimeScope<JsonSerializer, IJsonSerializer>();
 

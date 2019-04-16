@@ -174,17 +174,9 @@
     <Folder Include="Views\Pages\AlcoList\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.Droid\Softeq.XToolkit.WhiteLabel.Droid.csproj">
-      <Project>{7F44F0F6-8396-42D0-8A1B-DC40CE8C478C}</Project>
-      <Name>Softeq.XToolkit.WhiteLabel.Droid</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AlcoCalendar.ViewModels\AlcoCalendar.ViewModels.csproj">
       <Project>{9888383A-8392-4DF2-857C-13519BCE7CB9}</Project>
       <Name>AlcoCalendar.ViewModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Common\Softeq.XToolkit.Common.csproj">
-      <Project>{54E677DA-230A-4B36-8518-EFF2B3B160AF}</Project>
-      <Name>Softeq.XToolkit.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\AlcoCalendar.Services\AlcoCalendar.Services.csproj">
       <Project>{BF8E837A-9EE2-416D-B014-6C1DFFE7FF86}</Project>
@@ -198,19 +190,23 @@
       <Project>{C68FF9C6-3630-414F-A183-5B0A44A8BA5C}</Project>
       <Name>AlcoCalendar.LocalData</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Caching.Realm\Softeq.XToolkit.Caching.Realm.csproj">
-      <Project>{99FBE45E-F49C-4349-A90F-019CBE1EB420}</Project>
-      <Name>Softeq.XToolkit.Caching.Realm</Name>
+    <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.Droid\Softeq.XToolkit.WhiteLabel.Droid.csproj">
+      <Project>{7F44F0F6-8396-42D0-8A1B-DC40CE8C478C}</Project>
+      <Name>Softeq.XToolkit.WhiteLabel.Droid</Name>
     </ProjectReference>
     <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.csproj">
       <Project>{B310B18B-8908-4CD9-A12B-93DF97671B99}</Project>
       <Name>Softeq.XToolkit.WhiteLabel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Bindings\Softeq.XToolkit.Bindings.csproj">
-      <Project>{47ED3C31-8C38-4AFD-8022-D350A3BA086F}</Project>
+    <ProjectReference Include="..\XToolkit.WhiteLabel\XToolkit.Bindings\XToolkit.Common\Softeq.XToolkit.Common\Softeq.XToolkit.Common.csproj">
+      <Project>{1A885724-8453-419D-A6A1-CF9FEA19347D}</Project>
+      <Name>Softeq.XToolkit.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XToolkit.WhiteLabel\XToolkit.Bindings\Softeq.XToolkit.Bindings\Softeq.XToolkit.Bindings.csproj">
+      <Project>{42158868-A850-4B98-A022-26571BEFD7AC}</Project>
       <Name>Softeq.XToolkit.Bindings</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XToolKit\Softeq.XToolkit.Bindings.Droid\Softeq.XToolkit.Bindings.Droid.csproj">
+    <ProjectReference Include="..\XToolkit.WhiteLabel\XToolkit.Bindings\Softeq.XToolkit.Bindings.Droid\Softeq.XToolkit.Bindings.Droid.csproj">
       <Project>{2B4A678B-63B4-49DB-99B1-BFE7793110C4}</Project>
       <Name>Softeq.XToolkit.Bindings.Droid</Name>
     </ProjectReference>

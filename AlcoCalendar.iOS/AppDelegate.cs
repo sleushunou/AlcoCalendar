@@ -21,7 +21,6 @@ using AlcoCalendar.Models;
 using AlcoCalendar.iOS.Services;
 using AlcoCalendar.Models.Interfaces;
 using AlcoCalendar.ViewModels.Pages.AlcoList;
-using Softeq.XToolkit.Caching.Realm;
 using AlcoCalendar.Services;
 using AlcoCalendar.LocalData.Interfaces;
 using AlcoCalendar.LocalData;
@@ -30,6 +29,7 @@ using Softeq.XToolkit.WhiteLabel.Mvvm;
 using Softeq.XToolkit.WhiteLabel.Interfaces;
 using Softeq.XToolkit.Permissions;
 using Softeq.XToolkit.Permissions.iOS;
+using AlcoCalendar.LocalData.Realm;
 
 namespace AlcoCalendar.iOS
 {
