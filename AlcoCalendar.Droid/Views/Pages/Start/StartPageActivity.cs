@@ -12,11 +12,13 @@ using Android.Views;
 using Android.Widget;
 using Softeq.XToolkit.WhiteLabel;
 using Softeq.XToolkit.WhiteLabel.Droid;
+using Softeq.XToolkit.WhiteLabel.Droid.Navigation;
 using Softeq.XToolkit.WhiteLabel.Navigation;
 
 namespace AlcoCalendar.Droid.Views
 {
     [Activity]
+    [StartActivity]
     public class StartPageActivity : ActivityBase<StartPageViewModel>
     {
         protected override void OnCreate(Bundle savedInstanceState)

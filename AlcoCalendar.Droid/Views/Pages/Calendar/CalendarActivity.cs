@@ -42,13 +42,6 @@ namespace AlcoCalendar.Droid.Views.Pages.Calendar
             _calenarRecyclerView.SetAdapter(adapter);
         }
 
-        public override void OnBackPressed()
-        {
-            Dependencies.IocContainer.Resolve<IBackStackManager>()
-                .Clear();
-            base.OnBackPressed();
-        }
-
         private ViewHolder GetViewHolder(ViewGroup parent, int viewType)
         {
             var itemView = LayoutInflater.From(parent.Context)

@@ -33,7 +33,7 @@ using Softeq.XToolkit.WhiteLabel.Services;
 namespace AlcoCalendar.Droid
 {
     [Application]
-    public class MainApplication : MainApplicationBase
+    public class MainApplication : AutoRegistrationMainApplication
     {
         private IIocContainer _iocContainer;
         private ICurrentActivity _currentActivity;
@@ -61,11 +61,6 @@ namespace AlcoCalendar.Droid
 
         protected override void ConfigureIoc(ContainerBuilder builder)
         {
-            builder.PerLifetimeScope<ActivityPageNavigationService, IPlatformNavigationService>()
-                .WithParameter(new TypedParameter(typeof(ICurrentActivity), _currentActivity))
-                .PreserveExistingDefaults();
-
-            builder.RegisterType<ViewLocator>();
             builder.PerLifetimeScope<DroidConsoleLogManager, ILogManager>();
             builder.PerLifetimeScope<BackStackManager, IBackStackManager>()
                 .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
@@ -82,10 +77,10 @@ namespace AlcoCalendar.Droid
 
             builder.PerLifetimeScope<JsonSerializer, IJsonSerializer>();
 
-            builder.PerDependency<StartPageViewModel>();
-            builder.PerDependency<CalendarViewModel>();
-            builder.PerDependency<AlcoDayViewModel>();
-            builder.PerDependency<AlcoListViewModel>();
+            //builder.PerDependency<StartPageViewModel>();
+            //builder.PerDependency<CalendarViewModel>();
+            //builder.PerDependency<AlcoDayViewModel>();
+            //builder.PerDependency<AlcoListViewModel>();
             builder.PerDependency<DayViewModel>();
         }
     }
