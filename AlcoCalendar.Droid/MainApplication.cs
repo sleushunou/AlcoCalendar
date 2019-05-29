@@ -54,7 +54,7 @@ namespace AlcoCalendar.Droid
             base.OnCreate();
         }
 
-        public override IList<Assembly> SelectAssemblies()
+        protected override IList<Assembly> SelectAssemblies()
         {
             return new List<Assembly> { GetType().Assembly };
         }
@@ -77,10 +77,6 @@ namespace AlcoCalendar.Droid
 
             builder.PerLifetimeScope<JsonSerializer, IJsonSerializer>();
 
-            //builder.PerDependency<StartPageViewModel>();
-            //builder.PerDependency<CalendarViewModel>();
-            //builder.PerDependency<AlcoDayViewModel>();
-            //builder.PerDependency<AlcoListViewModel>();
             builder.PerDependency<DayViewModel>();
         }
     }

@@ -109,10 +109,6 @@ namespace AlcoCalendar.iOS
 
             builder.PerLifetimeScope<JsonSerializer, IJsonSerializer>();
 
-            builder.PerDependency<StartPageViewModel>();
-            builder.PerDependency<CalendarViewModel>();
-            builder.PerDependency<AlcoDayViewModel>();
-            builder.PerDependency<AlcoListViewModel>();
             builder.PerDependency<DayViewModel>();
 #pragma warning restore CS1701 // Assuming assembly reference matches identity
         }

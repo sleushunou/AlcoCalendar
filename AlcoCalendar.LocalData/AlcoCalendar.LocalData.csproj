@@ -9,7 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\AlcoCalendar.Models\AlcoCalendar.Models.csproj" />
-    <ProjectReference Include="..\XToolkit.WhiteLabel\XToolkit.Bindings\XToolkit.Common\Softeq.XToolkit.Common\Softeq.XToolkit.Common.csproj" />
+    <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.Common\Softeq.XToolkit.Common.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
