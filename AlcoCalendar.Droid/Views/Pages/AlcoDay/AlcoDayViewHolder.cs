@@ -12,7 +12,7 @@ namespace AlcoCalendar.Droid.Views.Pages.AlcoDay
     public class AlcoDayViewHolder : RecyclerView.ViewHolder
     {
         private readonly Button _nameButton;
-        private readonly Button _deleteButton;
+        private readonly ImageButton _deleteButton;
         private readonly TextInputEditText _editText;
 
         private WeakReferenceEx<AlcoDayItemViewModel> _viewModel;
@@ -23,7 +23,7 @@ namespace AlcoCalendar.Droid.Views.Pages.AlcoDay
         public AlcoDayViewHolder(View itemView, Action<AlcoDayItemViewModel> deleteActopm) : base(itemView)
         {
             _nameButton = itemView.FindViewById<Button>(Resource.Id.button_name);
-            _deleteButton = itemView.FindViewById<Button>(Resource.Id.button_alcodayitem_delete);
+            _deleteButton = itemView.FindViewById<ImageButton>(Resource.Id.button_alcodayitem_delete);
             _editText = itemView.FindViewById<TextInputEditText>(Resource.Id.edittext_count);
             _deleteButton.Click += DeleteButtonClick;
             _deleteAction = new WeakAction<AlcoDayItemViewModel>(deleteActopm);

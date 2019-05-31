@@ -21,6 +21,7 @@
     <Folder Include="Pages\Calendar\" />
     <Folder Include="Pages\AlcoDay\" />
     <Folder Include="Pages\AlcoList\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel\Softeq.XToolkit.WhiteLabel.csproj" />

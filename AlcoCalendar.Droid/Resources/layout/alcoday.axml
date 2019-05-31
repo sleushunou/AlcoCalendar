@@ -27,10 +27,11 @@
                 android:layout_weight="1"
 				android:id="@+id/alco_day_title" />
 			<Button
-				android:layout_width="50dp"
+				android:layout_width="70dp"
 				android:layout_height="wrap_content"
-                android:layout_weight="0"
-				android:id="@+id/save_button" />
+				android:layout_weight="0"
+				android:id="@+id/save_button"
+				android:text="Save"  />
 		</LinearLayout>
 	</Toolbar>
 	<android.support.v7.widget.RecyclerView

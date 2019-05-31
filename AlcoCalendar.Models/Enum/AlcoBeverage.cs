@@ -15,26 +15,26 @@ namespace AlcoCalendar.Models.Enum
 
     public static class AlcoBeverageDegree
     {
-        public static int GetDegree(this AlcoBeverage alcoBeverage)
+        public static double GetDegree(this AlcoBeverage alcoBeverage)
         {
             switch(alcoBeverage)
             {
                 case AlcoBeverage.Absinthe:
-                    return 70;
+                    return 0.7;
                 case AlcoBeverage.Beer:
-                    return 5;
+                    return 0.05;
                 case AlcoBeverage.Cognac:
-                    return 40;
+                    return 0.4;
                 case AlcoBeverage.Rum:
-                    return 40;
+                    return 0.4;
                 case AlcoBeverage.Tincture:
-                    return 20;
+                    return 0.2;
                 case AlcoBeverage.Wine:
-                    return 15;
+                    return 0.15;
                 case AlcoBeverage.Vodka:
-                    return 40;
+                    return 0.4;
                 case AlcoBeverage.Whiskey:
-                    return 40;
+                    return 0.4;
                 default:
                     throw new NotImplementedException();
             }
