@@ -55,7 +55,14 @@ namespace AlcoCalendar.ViewModels.Pages.Calendar
         private async Task LoadData()
         {
             var result = await _alcoService.ReadDay(Model).ConfigureAwait(false);
-            var alco = result?.Sum(x => x.AlcoBeverage.GetDegree() * x.Count);
+
+            if(result == null)
+            {
+                Color = DayColor.Default;
+                return;
+            }
+
+            var alco = result.Sum(x => x.AlcoBeverage.GetDegree() * x.Count);
             Execute.BeginOnUIThread(() =>
             {
                 if (alco > Constants.MaxAlcoInDay)

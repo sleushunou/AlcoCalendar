@@ -146,6 +146,7 @@
     <Compile Include="Views\Pages\AlcoDay\AlcoDayAddViewHolder.cs" />
     <Compile Include="Views\Pages\AlcoList\AlcoListDialogFragment.cs" />
     <Compile Include="Views\Pages\Calendar\DayView.cs" />
+    <Compile Include="AntiLinker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
