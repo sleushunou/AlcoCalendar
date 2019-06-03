@@ -1,20 +1,21 @@
 ﻿using System;
 using AlcoCalendar.Models;
 using AlcoCalendar.Models.Enum;
+using Realms;
 
-namespace AlcoCalendar.LocalData
+namespace AlcoCalendar.LocalData.Realm
 {
-    public class AlcoItemDto
+    internal class AlcoItemDto : RealmObject
     {
         public AlcoItemDto() { }
 
         public AlcoItemDto(AlcoItem alcoItem)
         {
-            AlcoBeverage = alcoItem.AlcoBeverage;
+            AlcoBeverage = (int)alcoItem.AlcoBeverage;
             Count = alcoItem.Count;
         }
 
-        public AlcoBeverage AlcoBeverage { get; set; }
+        public int AlcoBeverage { get; set; }
 
         public double Count { get; set; }
     }

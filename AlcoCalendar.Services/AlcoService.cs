@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AlcoCalendar.LocalData;
 using AlcoCalendar.LocalData.Interfaces;
 using AlcoCalendar.Models;
+using AlcoCalendar.Models.Enum;
 using AlcoCalendar.Models.Interfaces;
 
 namespace AlcoCalendar.Services
@@ -18,16 +19,14 @@ namespace AlcoCalendar.Services
             _localAlcoService = localAlcoService;
         }
 
-        public async Task<IList<AlcoItem>> ReadDay(Day day)
+        public Task<List<AlcoItem>> ReadDay(Day day)
         {
-            var result = await _localAlcoService.ReadDay(day).ConfigureAwait(false);
-            return result?.AlcoItems
-                .Select(x => new AlcoItem(x.AlcoBeverage) { Count = x.Count }).ToList();
+            return _localAlcoService.ReadDay(day);
         }
 
         public Task WriteDay(IList<AlcoItem> alcoItems, Day day)
         {
-            return _localAlcoService.WriteDay(new AlcoDayDto(alcoItems, day));
+            return _localAlcoService.WriteDay(alcoItems, day);
         }
     }
 }

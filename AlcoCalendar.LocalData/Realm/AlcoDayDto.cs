@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using AlcoCalendar.Models;
+using Realms;
 
-namespace AlcoCalendar.LocalData
+namespace AlcoCalendar.LocalData.Realm
 {
-    public class AlcoDayDto
+    internal class AlcoDayDto : RealmObject
     {
         public AlcoDayDto() { }
 
@@ -15,9 +16,10 @@ namespace AlcoCalendar.LocalData
             AlcoItems = alcoItems.Select(x => new AlcoItemDto(x)).ToList();
         }
 
+        [PrimaryKey]
         public string Key { get; set; }
 
-        public IList<AlcoItemDto> AlcoItems { get; set; }
+        public IList<AlcoItemDto> AlcoItems { get; }
 
         public static string GetKey(Day day)
         {

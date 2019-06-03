@@ -8,6 +8,6 @@ namespace AlcoCalendar.Models.Interfaces
     {
         Task WriteDay(IList<AlcoItem> alcoItem, Day day);
 
-        Task<IList<AlcoItem>> ReadDay(Day day);
+        Task<List<AlcoItem>> ReadDay(Day day);
     }
 }

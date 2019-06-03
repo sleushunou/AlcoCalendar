@@ -4,7 +4,6 @@ using System.Reflection;
 using AlcoCalendar.Droid.Services;
 using AlcoCalendar.LocalData;
 using AlcoCalendar.LocalData.Interfaces;
-using AlcoCalendar.LocalData.Realm;
 using AlcoCalendar.Models;
 using AlcoCalendar.Models.Interfaces;
 using AlcoCalendar.Services;
@@ -73,7 +72,6 @@ namespace AlcoCalendar.Droid
             builder.PerLifetimeScope<LocalAlcoService, ILocalAlcoService>();
             builder.PerLifetimeScope<DefaultAlertBuilder, IAlertBuilder>();
             builder.PerLifetimeScope<ViewModelFactoryService, IViewModelFactoryService>();
-            builder.PerLifetimeScope<RealmLocalCache, ILocalCache>();
 
             builder.PerLifetimeScope<JsonSerializer, IJsonSerializer>();
 
