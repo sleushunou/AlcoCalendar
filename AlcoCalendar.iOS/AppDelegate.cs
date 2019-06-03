@@ -102,7 +102,6 @@ namespace AlcoCalendar.iOS
             builder.PerLifetimeScope<StoryboardDialogsService, IDialogsService>()
                 .WithParameter(new TypedParameter(typeof(IIocContainer), _iocContainer));
             builder.RegisterInstance(_localiztionService);
-            builder.PerLifetimeScope<RealmLocalCache, ILocalCache>();
             builder.PerLifetimeScope<AlcoService, IAlcoService>();
             builder.PerLifetimeScope<LocalAlcoService, ILocalAlcoService>();
             builder.PerLifetimeScope<ViewModelFactoryService, IViewModelFactoryService>();

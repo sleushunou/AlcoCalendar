@@ -6,6 +6,7 @@ using Softeq.XToolkit.Bindings.iOS;
 using Softeq.XToolkit.Common;
 using Softeq.XToolkit.Common.Collections;
 using Softeq.XToolkit.WhiteLabel.iOS;
+using Softeq.XToolkit.Common.Extensions;
 using System;
 using UIKit;
 
@@ -78,7 +79,8 @@ namespace AlcoCalendar.iOS.ViewControllers.Calendar
             var viewModel = _source.Target?.SelectedItem;
             if(viewModel != null)
             {
-                viewModel.NavigateToDetailsAsync();
+                _source.Target.ItemDeselected(CalendarCollectionView, default);
+                viewModel.NavigateToDetailsAsync().SafeTaskWrapper();
             }
         }
 
